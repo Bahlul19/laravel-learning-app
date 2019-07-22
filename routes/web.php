@@ -15,17 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function(){
+// Route::get('about', function(){
 
-    $tasks = "Name";
+//     // $tasks = "Name";
 
-    $hello = "This is my first example";
+//     // $hello = "This is my first example";
 
-    $names = [
-        'Car',
-        'Driver',
-        'Bike'
-    ];
+//     $names = 
 
-    return view('about', compact('names'));
-});
+//     return view('about', compact('names'));
+// });
+
+
+    Route::get('about', function(){
+        $names = DB::Table('tasks')->get();
+        return view('about', compact('names'));
+    });
+
+    Route::get('/tasks', function(){
+        $names = DB::Table('tasks')->latest()->get();
+        return view('tasks.index', compact('names'));
+    });
+
+    Route::get('/tasks/{id}', function($id){
+    $task = DB::Table('tasks')->find($id);
+    return view('tasks.tasks', compact('task'));
+    });
+
+

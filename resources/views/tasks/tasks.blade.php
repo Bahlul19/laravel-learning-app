@@ -6,15 +6,8 @@
 <body>
 
 
-@foreach($names as $name)
+<h1> {{$task->name}} </h1>
 
-<ul> 
-
-<li> {{ $name->name }} </li>
-
-</ul>
-
-@endforeach
 
 
 </body>

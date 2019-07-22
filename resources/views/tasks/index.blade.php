@@ -10,7 +10,14 @@
 
 <ul> 
 
-<li> {{ $name->name }} </li>
+<li>
+    <a href="/tasks/ {{ $name->id }}">
+    
+ {{ $name->name }}
+ 
+  </li>
+
+  </a>
 
 </ul>
 
