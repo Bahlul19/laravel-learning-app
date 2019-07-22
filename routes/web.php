@@ -16,5 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('about', function(){
-    return view('about');
+
+    $tasks = "Name";
+
+    $hello = "This is my first example";
+
+    $names = [
+        'Car',
+        'Driver',
+        'Bike'
+    ];
+
+    return view('about', compact('names'));
 });
