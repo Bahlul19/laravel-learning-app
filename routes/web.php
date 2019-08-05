@@ -1,4 +1,8 @@
 <?php
+use Illuminate\Support\Facades\Route;
+//use Symfony\Component\Routing\Annotation\Route;
+
+// use Symfony\Component\Routing\Annotation\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,9 +15,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // Route::get('about', function(){
 
@@ -27,19 +29,24 @@ Route::get('/', function () {
 // });
 
 
+// Route::get('/tasks', 'TasksController@index');
+Route::get('/', 'TasksController@index');
+Route::get('/tasks/{id}','TasksController@showAll');
+
+
     Route::get('about', function(){
         $names = DB::Table('tasks')->get();
         return view('about', compact('names'));
     });
 
-    Route::get('/tasks', function(){
-        $names = DB::Table('tasks')->latest()->get();
-        return view('tasks.index', compact('names'));
-    });
+    // Route::get('/tasks', function(){
+    //     $names = DB::Table('tasks')->latest()->get();
+    //     return view('tasks.index', compact('names'));
+    // });
 
-    Route::get('/tasks/{id}', function($id){
-    $task = DB::Table('tasks')->find($id);
-    return view('tasks.tasks', compact('task'));
-    });
+    // Route::get('/tasks/{id}', function($id){
+    // $task = DB::Table('tasks')->find($id);
+    // return view('tasks.tasks', compact('task'));
+    // });
 
 
