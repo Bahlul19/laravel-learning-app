@@ -15,38 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-// Route::get('about', function(){
-
-//     // $tasks = "Name";
-
-//     // $hello = "This is my first example";
-
-//     $names = 
-
-//     return view('about', compact('names'));
-// });
-
-
-// Route::get('/tasks', 'TasksController@index');
-Route::get('/', 'TasksController@index');
-Route::get('/tasks/{id}','TasksController@showAll');
-
-
-    Route::get('about', function(){
-        $names = DB::Table('tasks')->get();
-        return view('about', compact('names'));
-    });
-
-    // Route::get('/tasks', function(){
-    //     $names = DB::Table('tasks')->latest()->get();
-    //     return view('tasks.index', compact('names'));
-    // });
-
-    // Route::get('/tasks/{id}', function($id){
-    // $task = DB::Table('tasks')->find($id);
-    // return view('tasks.tasks', compact('task'));
-    // });
-
+//This is for the index page of the project
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
 
